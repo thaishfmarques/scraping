@@ -16,7 +16,7 @@ class SejalivreSpider(scrapy.Spider):
         # busca no seletor <article> e class='post' e lista as informacoes
         # ele busca na classe post por ser a primeira classe referenciada que agrega todos os blocos de noticias
         for resource in response.css("article.post"):
-            # o yield retorna o resultado do crawler
+            # o yield retorna o resultado do crawler 
             yield {
                 'title': resource.css("h2.entry-title a::text").extract(),
                 'url': resource.css("h2.entry-title a::attr(href)").extract(),
