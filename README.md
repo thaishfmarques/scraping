@@ -15,7 +15,7 @@
 >>   $ scrapy startproject teste_spider
 >
 >**# navega ate a pasta do projeto**
->>   $ cd ./teste_spider/
+>>   $ cd ./teste_spider/spiders
 >
 >**# cria a spider**
 >>   $ scrapy genspider SejaLivre sejalivre.org
