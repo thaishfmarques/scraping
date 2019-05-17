@@ -4,20 +4,20 @@ import scrapy
 
 
 class SejalivreSpider(scrapy.Spider):
+    # variavel name identifica a spider,deve ser um nome unico no projeto
     name = 'SejaLivre'
+    # identifica qual dominio pode seja varrido
     allowed_domains = ['sejalivre.org']
+    # url onde a spider vai trabalhar
     start_urls = ['http://sejalivre.org/']
 
+    # metodo que manipula as informacoes extraidas de cada requisicao
     def parse(self, response):
-        article = response.css(".entry-title").xpath('//a[@rel="bookmark"]/text()').extract()
-        author = response.css(".entry-title").xpath('//a[@rel="author"]/text()').extract()
-        link = response.css(".entry-title a::attr(href)").extract()
-
-        for i in article:
-            print(i)
-
-        for j in author:
-            print(j)
-
-        for k in link:
-            print(k)
+        # busca no seletor <article> e class='post' e lista as informacoes
+        for resource in response.css("article.post"):
+            # o yield retorna o resultado do crawler
+            yield {
+                'title': resource.css("h2.entry-title a::text").extract(),
+                'url': resource.css("h2.entry-title a::attr(href)").extract(),
+                'author': resource.css("span.author a::text").extract()
+            }
