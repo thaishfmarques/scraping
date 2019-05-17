@@ -25,3 +25,6 @@
 >
 >**# abre o shell do scrapy para o site**
 >>   $ scrapy shell http://sejalivre.org/
+>
+>**# exporta o crawler para um arquivo**
+>>   $ scrapy crawl SejaLivre -o teste.csv
