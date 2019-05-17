@@ -15,10 +15,11 @@
 >>   $ scrapy startproject teste_spider
 >
 >**# navega ate a pasta do projeto**
->>   $ cd ./teste_spider/spiders
+>>   $ cd ./teste_spider/
 >
 >**# cria a spider**
 >>   $ scrapy genspider SejaLivre sejalivre.org
+>>   $ cd ./teste_spider/spiders
 >
 >**# executa a spider**
 >>   $ scrapy runspider SejaLivre.py
