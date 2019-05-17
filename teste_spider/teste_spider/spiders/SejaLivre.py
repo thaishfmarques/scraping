@@ -14,6 +14,7 @@ class SejalivreSpider(scrapy.Spider):
     # metodo que manipula as informacoes extraidas de cada requisicao
     def parse(self, response):
         # busca no seletor <article> e class='post' e lista as informacoes
+        # ele busca na classe post por ser a primeira classe referenciada que agrega todos os blocos de noticias
         for resource in response.css("article.post"):
             # o yield retorna o resultado do crawler
             yield {
